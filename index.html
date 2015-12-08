@@ -1,9 +1,34 @@
+
 <!doctype html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/master.css">
 	<title> Not By Plane</title>
 </head>
 <body>
-
+		<center>
+	<div id="wrapper" style="padding:10px;border:90px solid lightblue; background:white; max-width:50%" background:white;>
+		<h1> Plan Your Journey </h1> <br><br>
+		<form>
+			<input class="spacing" type="text" placeholder="From"> <br><br>
+			<input class="spacing" type="text" placeholder="To"> <br><br><br>
+			<div>Departure date:</div>
+			<input class="date" type="date"> <br><br>
+			<div>Return date:</div>
+			<input class="date" type="date"> <br><br><br>
+			Travel method (please select atleast one):
+			<div class="checkbox">
+				<label><input type="checkbox" value="">Planes</label>
+			</div>
+			<div class="checkbox">
+				<label><input type="checkbox" value="">Trains</label>
+			</div><br>
+			<div>
+				<button type="button" class="btn btn-default">PLAN MY JOURNEY</button>
+			</div><br>
+		</form>
+	</div>
+</center>
 </body>
 </html>
