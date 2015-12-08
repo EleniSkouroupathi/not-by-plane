@@ -64,9 +64,10 @@
 			<br>
 			</form>
 			<p> Autocomplete Results: </p>
-			<ul class="list-group">
+			<ul class="list-group" ng-show="noPlaneCtrl.showResults">
 				<li class="list-group-item" ng-repeat="city in noPlaneCtrl.autoCompleteResult.data"> {{city.label}} {{city.value}}</li>
 			</ul>
+			<button type="button" ng-click="noPlaneCtrl.toggleResults()" ng-show="noPlaneCtrl.showResults"> HIDE RESULTS</button>
 		</div>
 	</center>
 </body>
