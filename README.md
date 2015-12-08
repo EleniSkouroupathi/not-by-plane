@@ -1,3 +1,7 @@
+
+[![Stories in Ready](https://badge.waffle.io/EleniSkouroupathi/not-by-plane.png?label=ready&title=Ready)](http://waffle.io/EleniSkouroupathi/not-by-plane)
+
+
 Week 9 Group Project: Not By Plane App
 =================
 
