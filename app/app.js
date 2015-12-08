@@ -1,0 +1,1 @@
+var notplaneapp = angular.module('notplaneapp', ['ngResorce'])
