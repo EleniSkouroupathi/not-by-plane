@@ -9,6 +9,7 @@
   <script src='app/app.js'></script>
   <script src='app/noPlaneController.js'></script>
   <script src='app/factoryFlightSearch.js'></script>
+	<script src='app/autoCompleteFactory.js'></script>
 
 	<title> Not By Plane</title>
 </head>
@@ -34,9 +35,14 @@
 			</div><br>
 			<div>
 				<button type="button" class="btn btn-default"
-        ng-click='noPlaneCtrl.doSearchFlight()'>PLAN MY JOURNEY</button>
+        ng-click='noPlaneCtrl.doFlightSearch()'>PLAN MY JOURNEY</button>
+				<button class="btn btn-default" ng-click="noPlaneCtrl.performAutoComplete()">AUTOCOMPLETE</button>
 			</div><br>
 		</form>
+		<p> Autocomplete Results: </p>
+		<ul>
+			<li ng-repeat="city in noPlaneCtrl.autoCompleteResult.data"> {{city.value}}</li>
+		</ul>
 	</div>
 </center>
 </body>

@@ -9,7 +9,7 @@ notplaneapp.factory('FlightSearch', ['$http', function($http){
         url: baseUrl,
         method: 'GET',
         params: {
-          'apiKey': token,
+          'apikey': token,
           'origin': startLoc,
           'destination': endLoc,
           'departure_date': '2015-12-20',
