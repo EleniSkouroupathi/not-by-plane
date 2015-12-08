@@ -1,8 +1,6 @@
-[![Stories in Backlog](https://badge.waffle.io/EleniSkouroupathi/not-by-plane.png?label=backlog&title=Backlog)](http://waffle.io/EleniSkouroupathi/not-by-plane)
 
 [![Stories in Ready](https://badge.waffle.io/EleniSkouroupathi/not-by-plane.png?label=ready&title=Ready)](http://waffle.io/EleniSkouroupathi/not-by-plane)
 
-[![Stories in In Progress](https://badge.waffle.io/EleniSkouroupathi/not-by-plane.png?label=inprogress&title=InProgress)](http://waffle.io/EleniSkouroupathi/not-by-plane)
 
 Week 9 Group Project: Not By Plane App
 =================
