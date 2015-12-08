@@ -8,7 +8,8 @@
   <script src='node_modules/angular-resource/angular-resource.js'></script>
   <script src='app/app.js'></script>
   <script src='app/noPlaneController.js'></script>
-  <script src='app/factoryFlightSearch.js'></script>
+  <script src='app/factoryOutbound.js'></script>
+  <script src='app/factoryInbound.js'></script>
 
 	<title> Not By Plane</title>
 </head>
@@ -34,19 +35,35 @@
 			</div><br>
 			<div>
 				<button type="button" class="btn btn-default"
-        ng-click='noPlaneCtrl.doFlightSearch()'>PLAN MY JOURNEY</button>
+        ng-click='noPlaneCtrl.searchs()'>PLAN MY JOURNEY</button>
 			</div><br>
 		</form>
 	</div>
 			<div>
 			<form>
 				<table>
-				
+					<tr><th colspan='4'>OUTWARD</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
 					<tr ng-repeat='item in noPlaneCtrl.searchResult.results'>
 					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 					<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>  {{item.fare.total_price}}</td>
 				</tr>
-
+				</table>
+			</form>
+		</div>
+			<div>
+			<form>
+				<table>
+					<tr><th colspan='4'>INWARD</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult2.results'>
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>{{item.fare.total_price}}</td>
+				</tr>
 				</table>
 			</form>
 		</div>
