@@ -1,49 +1,74 @@
-
 <!doctype html>
 <html ng-app='notplaneapp'>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/master.css">
-  <script src='node_modules/angular/angular.js'></script>
-  <script src='node_modules/angular-resource/angular-resource.js'></script>
-  <script src='app/app.js'></script>
-  <script src='app/noPlaneController.js'></script>
-  <script src='app/factoryFlightSearch.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src='node_modules/angular/angular.js'></script>
+	<script src='node_modules/angular-resource/angular-resource.js'></script>
+	<script src='app/app.js'></script>
+	<script src='app/noPlaneController.js'></script>
+	<script src='app/factoryFlightSearch.js'></script>
 	<script src='app/autoCompleteFactory.js'></script>
-
 	<title> Not By Plane</title>
 </head>
+
 <body ng-controller='noPlaneController as noPlaneCtrl'>
-		<center>
-	<div id="wrapper" style="padding:10px;border:90px solid lightblue; background:white; max-width:50%" background:white;>
-		<h1> Plan Your Journey </h1> <br><br>
-		<form>
-			<input class="spacing" type="text" placeholder="From"
-      ng-model='noPlaneCtrl.startLoc'> <br><br>
-			<input class="spacing" type="text" placeholder="To"
-      ng-model='noPlaneCtrl.endLoc'> <br><br><br>
-			<div>Departure date:</div>
-			<input class="date" type="date"> <br><br>
-			<div>Return date:</div>
-			<input class="date" type="date"> <br><br><br>
-			Travel method (please select atleast one):
-			<div class="checkbox">
-				<label><input type="checkbox" value="">Planes</label>
+	<center>
+		<div id="wrapper">
+			<header class="page-header">
+				<h1> Plan Your Journey </h1>
+				<br><i class="fa fa-train fa-5x logo"></i>
+				<br>
+			</header>
+			<div class="content">
+				<form>
+					<div class="form-container1">
+						<h3> Travel Details </h3>
+						<input class="spacing" type="text" placeholder="From" ng-model='noPlaneCtrl.startLoc'>
+						<br>
+						<br>
+						<input class="spacing" type="text" placeholder="To" ng-model='noPlaneCtrl.endLoc'>
+						<br>
+						<br>
+						<br>
+						<div>Departure date:</div>
+						<input class="date" type="date">
+						<br>
+						<br>
+						<div>Return date:</div>
+						<input class="date" type="date">
+						<br>
+						<br>
+					</div>
+					<br>
+					<div class="form-container2">
+						<h3> Travel Method (Please select at least one) </h3>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">Planes</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">Trains</label>
+						</div>
+					</div>
+					<br>
+					<div>
+						<button type="button" class="btn btn-default" ng-click='noPlaneCtrl.doFlightSearch()'>PLAN MY JOURNEY</button>
+						<button class="btn btn-default" ng-click="noPlaneCtrl.performAutoComplete()">AUTOCOMPLETE</button>
+					</div>
+					<br>
 			</div>
-			<div class="checkbox">
-				<label><input type="checkbox" value="">Trains</label>
-			</div><br>
-			<div>
-				<button type="button" class="btn btn-default"
-        ng-click='noPlaneCtrl.doFlightSearch()'>PLAN MY JOURNEY</button>
-				<button class="btn btn-default" ng-click="noPlaneCtrl.performAutoComplete()">AUTOCOMPLETE</button>
-			</div><br>
-		</form>
-		<p> Autocomplete Results: </p>
-		<ul>
-			<li ng-repeat="city in noPlaneCtrl.autoCompleteResult.data"> {{city.label}} {{city.value}}</li>
-		</ul>
-	</div>
-</center>
+			<br>
+			</form>
+			<p> Autocomplete Results: </p>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="city in noPlaneCtrl.autoCompleteResult.data"> {{city.label}} {{city.value}}</li>
+			</ul>
+		</div>
+	</center>
 </body>
+
 </html>

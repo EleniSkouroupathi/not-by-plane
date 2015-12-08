@@ -1,2 +1,50 @@
 body {
-background-color: lightblue;}
+background-color: #222;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/*header {
+  color: #00ACE9;
+  text-transform: uppercase;
+  letter-spacing: 1.4em;
+  font-weight: 400;
+}*/
+
+header {
+  font-family: "league-gothic", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.0em;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.logo {
+  color: #0077AF;
+}
+
+.content {
+  min-height: 40vh;
+  padding: 10px;
+  color: white;
+}
+
+#wrapper {
+  max-width: 50vw;
+}
+
+.form-container1, .form-container2 {
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 20px 24px 20px 24px;
+    border-bottom: 1px #333 solid;
+    background-color: #E25D33;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    max-width: 30vw;
+}
+
+form input {
+  color: black;
+}
