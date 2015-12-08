@@ -1,18 +1,25 @@
 
 <!doctype html>
-<html>
+<html ng-app='notplaneapp'>
 <head>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/master.css">
+  <script src='node_modules/angular/angular.js'></script>
+  <script src='node_modules/angular-resource/angular-resource.js'></script>
+  <script src='app/app.js'></script>
+  <script src='app/noPlaneController.js'></script>
+
 	<title> Not By Plane</title>
 </head>
-<body>
+<body ng-controller='noPlaneController as noPlaneCtrl'>
 		<center>
 	<div id="wrapper" style="padding:10px;border:90px solid lightblue; background:white; max-width:50%" background:white;>
 		<h1> Plan Your Journey </h1> <br><br>
 		<form>
-			<input class="spacing" type="text" placeholder="From"> <br><br>
-			<input class="spacing" type="text" placeholder="To"> <br><br><br>
+			<input class="spacing" type="text" placeholder="From"
+      ng-model='noPlaneCtrl.startLoc'> <br><br>
+			<input class="spacing" type="text" placeholder="To"
+      ng-model='noPlaneCtrl.endLoc'> <br><br><br>
 			<div>Departure date:</div>
 			<input class="date" type="date"> <br><br>
 			<div>Return date:</div>
@@ -25,7 +32,8 @@
 				<label><input type="checkbox" value="">Trains</label>
 			</div><br>
 			<div>
-				<button type="button" class="btn btn-default">PLAN MY JOURNEY</button>
+				<button type="button" class="btn btn-default"
+        ng-click='noPlaneCtrl.getFlightFromLoc()'>PLAN MY JOURNEY</button>
 			</div><br>
 		</form>
 	</div>

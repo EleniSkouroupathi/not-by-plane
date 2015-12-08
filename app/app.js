@@ -1,1 +1,1 @@
-var notplaneapp = angular.module('notplaneapp', ['ngResorce'])
+var notplaneapp = angular.module('notplaneapp', ['ngResource'])
