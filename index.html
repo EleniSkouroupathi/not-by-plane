@@ -38,6 +38,18 @@
 			</div><br>
 		</form>
 	</div>
+			<div>
+			<form>
+				<table>
+				
+					<tr ng-repeat='item in noPlaneCtrl.searchResult.results'>
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+				</tr>
+
+				</table>
+			</form>
+		</div>
 </center>
 </body>
 </html>
