@@ -3,7 +3,7 @@ notplaneapp.controller('noPlaneController',['$http', 'FlightSearch',"$scope", fu
   var self = this;
 
   self.doFlightSearch = function() {
-    var startLoc = selectedAirportFrom[0].iata
+    var startLoc = $scope.selectedAirportFrom[0].iata
     var endLoc = $scope.selectedAirportTo[0].iata
 
     FlightSearch.query(startLoc, endLoc)
