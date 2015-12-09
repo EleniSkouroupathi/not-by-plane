@@ -1,16 +1,15 @@
-notplaneapp.factory('outboundDate',function(){
+notplaneapp.factory('StringDate',function(){
 
   return {
-    convertEndDate: function(endingDate){
+    convertEndDate: function(newDate){
 
-      year = endingDate.getFullYear();
-      month = (endingDate.getMonth())+1;
-      day = endingDate.getDate();
+      year = newDate.getFullYear();
+      month = (newDate.getMonth())+1;
+      day = newDate.getDate();
       day < 10 ? self.correctDate() : day;
       month < 10 ? self.correctMonth() : month;
-      console.log(month);
-      endDate = year + '-' + month + '-' + day;
-      return endDate;
+      convertedDate = year + '-' + month + '-' + day;
+      return convertedDate;
     }
   };
 });
