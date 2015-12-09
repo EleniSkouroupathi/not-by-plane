@@ -1,1 +1,1 @@
-var notplaneapp = angular.module('notplaneapp', ['ngResource'])
+var notplaneapp = angular.module('notplaneapp', ['ngResource', 'siyfion.sfTypeahead']);

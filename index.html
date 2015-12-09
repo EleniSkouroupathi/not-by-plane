@@ -4,11 +4,31 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/master.css">
+
+
+	<script src="app/allAirports.js"></script>
+	<link rel="stylesheet" href="stylesheets/searchbars.css">
+	<script>document.write('<base href="' + document.location + '" />');</script>
+	<script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
   <script src='node_modules/angular/angular.js'></script>
   <script src='node_modules/angular-resource/angular-resource.js'></script>
+
+	<script data-require="typeahead.js@*" data-semver="0.10.0" src="http://twitter.github.com/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+	<script data-require="bloodhound.js@*" data-semver="0.10.0" src="http://twitter.github.com/typeahead.js/releases/latest/bloodhound.js"></script>
+	<script src="app/angular-typeahead.js"></script>
+
+
   <script src='app/app.js'></script>
   <script src='app/noPlaneController.js'></script>
   <script src='app/factoryFlightSearch.js'></script>
+
+
+
+
+
+
+
+
 
 	<title> Not By Plane</title>
 </head>
@@ -17,10 +37,10 @@
 	<div id="wrapper" style="padding:10px;border:90px solid lightblue; background:white; max-width:50%" background:white;>
 		<h1> Plan Your Journey </h1> <br><br>
 		<form>
-			<input class="spacing" type="text" placeholder="From"
-      ng-model='noPlaneCtrl.startLoc'> <br><br>
-			<input class="spacing" type="text" placeholder="To"
-      ng-model='noPlaneCtrl.endLoc'> <br><br><br>
+
+			<input placeholder="From" class='spacing typeahead' type="text" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportFrom"><br><br>
+			<input placeholder="To" class='spacing typeahead' type="text" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportTo"><br><br><br>
+
 			<div>Departure date:</div>
 			<input class="date" type="date"> <br><br>
 			<div>Return date:</div>
