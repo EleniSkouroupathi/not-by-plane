@@ -1,10 +1,26 @@
-notplaneapp.factory('outboundDate', function(startingDate){
+notplaneapp.factory('outboundDate',function(){
 
-  var day = startingDate.getDate();
-  var month = startingDate.getMonth();
-  var year = startingDate.getFullYear();
-  var date;
-  day < 10 ? correctDate() : day;
-  date: year = '-' + (month+1) + '-' + day;
- console.log(startingDate);
-  });
+  return {
+    convertEndDate: function(endingDate){
+
+      year = endingDate.getFullYear();
+      month = (endingDate.getMonth())+1;
+      day = endingDate.getDate();
+      day < 10 ? self.correctDate() : day;
+      month < 10 ? self.correctMonth() : month;
+      console.log(month);
+      endDate = year + '-' + month + '-' + day;
+      return endDate;
+    }
+  };
+});
+
+  self.correctDate = function(){
+    DayString = day.toString();
+    day = '0' + DayString;
+    };
+
+  self.correctMonth = function(){
+    monthString = month.toString();
+    month = '0' + monthString;
+    };

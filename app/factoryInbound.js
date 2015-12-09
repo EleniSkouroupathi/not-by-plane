@@ -3,7 +3,7 @@ notplaneapp.factory('inBound', ['$http', function($http){
   var baseUrl = 'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search';
 
   return {
-    query: function(startLoc, endLoc, date2){
+    query: function(startLoc, endLoc, endDate){
       return $http({
         url: baseUrl,
         method: 'GET',
@@ -11,7 +11,7 @@ notplaneapp.factory('inBound', ['$http', function($http){
           'apikey': token,
           'origin': endLoc,
           'destination': startLoc,
-          'departure_date': date2,
+          'departure_date': endDate,
           'currency': 'GBP'
         }
       });
