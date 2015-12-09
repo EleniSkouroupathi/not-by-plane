@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html ng-app='notplaneapp'>
 <head>
@@ -6,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="stylesheets/master.css">
   <script src='node_modules/angular/angular.js'></script>
   <script src='node_modules/angular-resource/angular-resource.js'></script>
+  <script src='bower_components/jquery/dist/jquery.min.js'></script>
   <script src='app/app.js'></script>
   <script src='app/token.js'></script>
   <script src='app/noPlaneController.js'></script>
@@ -24,9 +24,9 @@
 			<input class="spacing" type="text" placeholder="To"
       ng-model='noPlaneCtrl.endLoc'> <br><br><br>
 			<div>Departure date:</div>
-			<input class="date" type="date"> <br><br>
+			<input ng-model='noPlaneCtrl.startingDate' placeholder='yyyy-MM-dd' type="date"> <br><br>
 			<div>Return date:</div>
-			<input class="date" type="date"> <br><br><br>
+			<input ng-model='noPlaneCtrl.endingDate' placeholder='yyyy-MM-dd' type="date"> <br><br><br>
 			Travel method (please select atleast one):
 			<div class="checkbox">
 				<label><input type="checkbox" value="">Planes</label>
