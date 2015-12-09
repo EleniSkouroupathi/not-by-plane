@@ -29,8 +29,8 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
       });
   };
 
-  $scope.selectedAirportFrom = null;
-  $scope.selectedAirportTo = null;
+  // $scope.selectedAirportFrom = null;
+  // $scope.selectedAirportTo = null;
 
   var airports = new Bloodhound({
     datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name);},
