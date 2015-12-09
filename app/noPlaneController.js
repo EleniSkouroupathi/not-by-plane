@@ -1,8 +1,11 @@
-notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$scope', function($http, outBound, inBound, $scope) {
+notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$scope', '$location', function($http, outBound, inBound, $scope, $location) {
 
   var self = this;
   self.planeChecked = true;
   self.trainChecked = true;
+  self.showFlight = function(item) {
+    $location.path('/flight/' + item);
+  };
 
 
   self.doOutbound = function() {
