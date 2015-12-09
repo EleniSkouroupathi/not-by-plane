@@ -5,20 +5,20 @@
 Week 9 Group Project: Not By Plane App
 =================
 
-About the app 
+About the app
 -----
 
 There are several journey planning softwares (e.g. google maps, traveline, tfl, lastminute.com) but there are none that combine flights and train journeys with each other. What if taking the train is faster and/or cheaper than a plane? How is the user able to quickly discover the most efficient travel journey?
 
 This app intends to solve that issue by presenting the user with the different modes of transportation (focusing on planes and trains), their prices, and their travel journeys/times, thus allowing them to make an informed decision to better suit their needs.
 
-User Stories 
+User Stories
 -----
 
 ```
 As a User
-So that I can...
-I want to see a list of...
+So that I can make coffee
+I want to see a list of people who will make me coffee
 ```
 ```
 As a User
@@ -26,7 +26,7 @@ So that I can...
 I want to be able to...
 ```
 ```
-As a User 
+As a User
 So that I can...
 I want to be able to...
 ```
@@ -39,6 +39,5 @@ I want to be able to...
 Installation
 -----
 
-Usage 
+Usage
 -----
-
