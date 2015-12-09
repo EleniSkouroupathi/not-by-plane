@@ -1,7 +1,6 @@
-notplaneapp.factory('FlightSearch', ['$http', function($http){
+notplaneapp.factory('inBound', ['$http', function($http){
 
   var baseUrl = 'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search';
-  var token = 'INQs3X0RjI9ZHCCMZM1pLyRx1nsNz6TC';
 
   return {
     query: function(startLoc, endLoc){
@@ -10,10 +9,10 @@ notplaneapp.factory('FlightSearch', ['$http', function($http){
         method: 'GET',
         params: {
           'apikey': token,
-          'origin': startLoc,
-          'destination': endLoc,
-          'departure_date': '2015-12-20',
-          'return_date': '2015-12-27'
+          'origin': endLoc,
+          'destination': startLoc,
+          'departure_date': '2015-12-27',
+          'currency': 'GBP'
         }
       });
     }

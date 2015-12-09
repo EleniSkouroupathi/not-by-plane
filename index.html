@@ -19,8 +19,10 @@
 
 
   <script src='app/app.js'></script>
+  <script src='app/token.js'></script>
   <script src='app/noPlaneController.js'></script>
-  <script src='app/factoryFlightSearch.js'></script>
+  <script src='app/factoryOutbound.js'></script>
+  <script src='app/factoryInbound.js'></script>
 
 
 
@@ -37,6 +39,7 @@
 	<div id="wrapper" style="padding:10px;border:90px solid lightblue; background:white; max-width:50%" background:white;>
 		<h1> Plan Your Journey </h1> <br><br>
 		<form>
+			<p>From: {{noPlaneCtrl.selectedAirportFrom['iata']}}</p>
 
 			<input placeholder="From" class='spacing typeahead' type="text" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportFrom"><br><br>
 			<input placeholder="To" class='spacing typeahead' type="text" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportTo"><br><br><br>
@@ -54,10 +57,38 @@
 			</div><br>
 			<div>
 				<button type="button" class="btn btn-default"
-        ng-click='noPlaneCtrl.doFlightSearch()'>PLAN MY JOURNEY</button>
+        ng-click='noPlaneCtrl.searchs()'>PLAN MY JOURNEY</button>
 			</div><br>
 		</form>
 	</div>
+			<div>
+			<form>
+				<table>
+					<tr><th colspan='4'>OUTWARD</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult.results'>
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>  {{item.fare.total_price}}</td>
+				</tr>
+				</table>
+			</form>
+		</div>
+			<div>
+			<form>
+				<table>
+					<tr><th colspan='4'>INWARD</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult2.results'>
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>{{item.fare.total_price}}</td>
+				</tr>
+				</table>
+			</form>
+		</div>
 </center>
 </body>
 </html>
