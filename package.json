@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EleniSkouroupathi/not-by-plane#readme",
   "dependencies": {
+    "airport-codes": "^1.0.2",
     "angular": "^1.4.8",
     "angular-resource": "^1.4.8",
     "express": "^4.13.3",

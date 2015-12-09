@@ -24,4 +24,9 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound', func
     self.doOutbound();
     self.doInbound();
   };
+
+  self.isTrainJourney = function(data) {
+      return (data==='TRS' || data==='TRN');
+    };
+
 }]);

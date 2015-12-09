@@ -11,6 +11,7 @@
   <script src='app/noPlaneController.js'></script>
   <script src='app/factoryOutbound.js'></script>
   <script src='app/factoryInbound.js'></script>
+	<script src="app/airports.json"></script>
 
 	<title> Not By Plane</title>
 </head>
@@ -43,13 +44,25 @@
 			<div>
 			<form>
 				<table>
-					<tr><th colspan='4'>OUTWARD</th></tr>
+					<tr><th colspan='4'>OUTWARD - TRAINS</th></tr>
 					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
-					<tr ng-repeat='item in noPlaneCtrl.searchResult.results'>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
 					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 					<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 					<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
 					<td>  {{item.fare.total_price}}</td>
+					<td> Train: {{noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)}} </td>
+				</tr>
+				</table>
+				<table>
+					<tr><th colspan='4'>OUTWARD - PLANES</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>  {{item.fare.total_price}}</td>
+					<td> Train: {{noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)}} </td>
 				</tr>
 				</table>
 			</form>
@@ -57,13 +70,26 @@
 			<div>
 			<form>
 				<table>
-					<tr><th colspan='4'>INWARD</th></tr>
+					<tr><th colspan='4'>INWARD - TRAINS</th></tr>
 					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
-					<tr ng-repeat='item in noPlaneCtrl.searchResult2.results'>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
 					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 					<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 					<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
 					<td>{{item.fare.total_price}}</td>
+					<td> Train: {{noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)}} </td>
+				</tr>
+				</table>
+
+				<table>
+					<tr><th colspan='4'>INWARD - PLANES</th></tr>
+					<tr><th>Date</th><th>From</th><th>To</th><th>GBP</th></tr>
+					<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+					<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
+					<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
+					<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
+					<td>{{item.fare.total_price}}</td>
+					<td> Train: {{noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)}} </td>
 				</tr>
 				</table>
 			</form>
