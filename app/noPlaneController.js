@@ -56,4 +56,8 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
     self.doInbound();
   };
 
+  self.isTrainJourney = function(data) {
+      return (data==='TRS' || data==='TRN');
+    };
+
 }]);
