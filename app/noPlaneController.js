@@ -1,6 +1,9 @@
 notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$scope', function($http, outBound, inBound, $scope) {
 
   var self = this;
+  self.planeChecked = true;
+  self.trainChecked = true;
+
 
   self.doOutbound = function() {
     var startLoc = self.selectedAirportFrom['iata']
@@ -21,16 +24,16 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
     var startLoc = self.selectedAirportFrom['iata']
     var endLoc = self.selectedAirportTo['iata']
 
-    inBound.query(startLoc, endLoc)
+    inBound.query(self.startLoc, self.endLoc)
       .then(function(response) {
         self.searchResult2 = response.data;
-        // console.log(response.data);
-        // console.log(self.searchResult2);
+        console.log(response.data);
+        console.log(self.searchResult2);
       });
   };
 
-  // $scope.selectedAirportFrom = null;
-  // $scope.selectedAirportTo = null;
+  $scope.selectedAirportFrom = null;
+  $scope.selectedAirportTo = null;
 
   var airports = new Bloodhound({
     datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name);},

@@ -60,11 +60,11 @@
 						Travel method (please select atleast one):
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="">Planes</label>
+								<input type="checkbox" value="" ng-model="noPlaneCtrl.planeChecked" checked>Planes</label>
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="">Trains</label>
+								<input type="checkbox" value="" ng-model="noPlaneCtrl.trainChecked" checked>Trains</label>
 						</div>
 						<br>
 						<div>
@@ -87,7 +87,7 @@
 							<th>GBP</th>
 							<th>Class</th>
 						</tr>
-						<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+						<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft) && noPlaneCtrl.trainChecked">
 							<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 							<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 							<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
@@ -107,7 +107,7 @@
 							<th>GBP</th>
 							<th>Class</th>
 						</tr>
-						<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+						<tr ng-repeat='item in noPlaneCtrl.searchResult.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft) || !(noPlaneCtrl.planeChecked)">
 							<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 							<td> {{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 							<td> {{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
@@ -131,7 +131,7 @@
 							<th>GBP</th>
 							<th>Class</th>
 						</tr>
-						<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+						<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-show="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft) && noPlaneCtrl.trainChecked">
 							<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 							<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 							<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
@@ -152,7 +152,7 @@
 							<th>GBP</th>
 							<th>Class</th>
 						</tr>
-						<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft)">
+						<tr ng-repeat='item in noPlaneCtrl.searchResult2.results' ng-hide="noPlaneCtrl.isTrainJourney(item.itineraries[0].outbound.flights[0].aircraft) || !(noPlaneCtrl.planeChecked)">
 							<td>{{item.itineraries[0].outbound.flights[0].departs_at}}&nbsp;&nbsp;</td>
 							<td>{{item.itineraries[0].outbound.flights[0].origin.airport}}</td>
 							<td>{{item.itineraries[0].outbound.flights[0].destination.airport}}</td>
