@@ -21,11 +21,11 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
     var startLoc = self.selectedAirportFrom['iata']
     var endLoc = self.selectedAirportTo['iata']
 
-    inBound.query(self.startLoc, self.endLoc)
+    inBound.query(startLoc, endLoc)
       .then(function(response) {
         self.searchResult2 = response.data;
-        console.log(response.data);
-        console.log(self.searchResult2);
+        // console.log(response.data);
+        // console.log(self.searchResult2);
       });
   };
 
