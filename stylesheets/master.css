@@ -44,6 +44,17 @@ header {
   float: left;
 }
 
+.departure {
+  /*padding: 9px;*/
+  /*margin-left: 10px;*/
+  /*margin-top: 10px;*/
+  /*width: 200px;*/
+}
+
+.checkbox {
+margin-left: 9px;
+}
+
 form input {
   color: black;
 }

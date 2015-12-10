@@ -8,11 +8,6 @@ notplaneapp.controller('noPlaneController',['$http', '$filter', 'outBound', 'inB
     $location.path('/flight/' + item);
   };
 
-  var baseURL = 'app/airports.json';
-  $http.get(baseURL).then(function(response) {
-    airportJSON = response.data;
-  });
-
   self.doOutbound = function() {
     var startLoc = self.selectedAirportFrom['iata']
     var endLoc = self.selectedAirportTo['iata']
@@ -40,13 +35,14 @@ notplaneapp.controller('noPlaneController',['$http', '$filter', 'outBound', 'inB
   var airports = new Bloodhound({
   datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name);},
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local: allAirports
+  local: newairports
 });
 
 airports.initialize();
 
 $scope.airportsDataset = {
   displayKey: 'name',
+  limit: 15,
   source: airports.ttAdapter()
 };
 
@@ -68,21 +64,14 @@ self.doName = function(itaTLA) {
   return factoryTLAName.query(itaTLA);
 };
 
-//self.doNameLookup = function(aryItems) {
-  //aryItems.forEach(function(item){
-    //var test = self.doName(item.itineraries[0].outbound.flights[0].origin.airports);
-    //var test2 = self.doName(item.itineraries[0].outbound.flights[0].destination.airports);
-    //item.itineraries[0].outbound.flights[0].origin.airports = test[0].name + ', ' + test[0].city;
-    //item.itineraries[0].outbound.flights[0].destination.airports = test2[0].name + ', ' + test2[0].city;
-    //});
-    self.doNameLookup = function(aryItems) {
-      aryItems.forEach(function(item) {
-        console.log(item);
-        var test = self.doName(item.itineraries[0].outbound.flights[0].origin.airport);
-        var test2 = self.doName(item.itineraries[0].outbound.flights[0].destination.airport);
-        item.itineraries[0].outbound.flights[0].origin.airport = test[0].name +", " +  test[0].city;
-        item.itineraries[0].outbound.flights[0].destination.airport = test2[0].name +", " +  test2[0].city;
-      });
-    };
+self.doNameLookup = function(aryItems) {
+  aryItems.forEach(function(item) {
+    console.log(item);
+    var test = self.doName(item.itineraries[0].outbound.flights[0].origin.airport);
+    var test2 = self.doName(item.itineraries[0].outbound.flights[0].destination.airport);
+    item.itineraries[0].outbound.flights[0].origin.airport = test[0].name +", " +  test[0].city;
+    item.itineraries[0].outbound.flights[0].destination.airport = test2[0].name +", " +  test2[0].city;
+  });
+};
 
   }]);
