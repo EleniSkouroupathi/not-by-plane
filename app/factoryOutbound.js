@@ -12,7 +12,8 @@ notplaneapp.factory('outBound', ['$http', function($http){
           'origin': startLoc,
           'destination': endLoc,
           'departure_date': startDate,
-          'currency': 'GBP'
+          'currency': 'GBP',
+          'direct': true
         }
       });
     }
