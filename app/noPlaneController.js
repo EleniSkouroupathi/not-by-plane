@@ -1,6 +1,9 @@
 notplaneapp.controller('noPlaneController',['$http', '$filter', 'outBound', 'inBound','StringDate','factoryTLAName', '$scope', function($http, $filter, outBound, inBound, StringDate, factoryTLAName, $scope) {
 
   var self = this;
+  self.planeChecked = true;
+  self.trainChecked = true;
+
   var baseURL = 'app/airports.json';
   $http.get(baseURL).then(function(response) {
     airportJSON = response.data;

@@ -29,41 +29,41 @@
 </head>
 
 <body ng-controller='noPlaneController as noPlaneCtrl'>
-	<center>
-		<div id="wrapper">
-			<header class="page-header">
+  <i class='fa fa-plane fa-5x' style='margin-top:50px;'></i>
+		<div id="wrapper" style='float:left; margin-top:50px; margin-left:50px;
+    width: 500px;'>
+      <header style='float:left; margin-bottom: 20px; margin-left:120px; width:500px;'>
+    <!--<center>-->
 				<h1> Plan Your Journey </h1>
-				<br><i class="fa fa-train fa-5x logo"></i> <br>
+    <!--</center>-->
 			</header>
 			<div class="content">
 				<form>
-					<div class="form-container1">
+					<div class="form-container" style='float:left; margin-left:70px; width:550px;'>
 						<input type="text" placeholder="From" class="typeahead" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportFrom"> <br> <br>
-						<input type="text" placeholder="To" class='typeahead' sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportTo">
-						<br> <br>
+						<input type="text" placeholder="To" class='typeahead' sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportTo"> <br> <br><br>
 					<div>Departure date:</div>
 			<input ng-model='noPlaneCtrl.startingDate' placeholder='yyyy-MM-dd' type="date"> <br><br>
 			<div>Return date:</div>
 			<input ng-model='noPlaneCtrl.endingDate' placeholder='yyyy-MM-dd' type="date"> <br><br><br>
-				<br> </div>
 
-					<div class="form-container2">
+					<!--<div class="form-container2">-->
 						Travel method (please select atleast one):
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="">Planes</label>
+								<input type="checkbox" value="" ng-model='noPlaneCtrl.planeChecked' checked>Planes</label>
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" value="">Trains</label>
+								<input type="checkbox" value="" ng-model='noPlaneCtrl.trainChecked' checked>Trains</label>
 						</div> <br>
 						<div>
 							<button type="button" class="btn btn-default" ng-click='noPlaneCtrl.searchs()'>PLAN MY JOURNEY</button>
 						</div> <br>
 				</form>
-				</div> </div>
-			<div>
-				<form>
+          </div> </div> </div>
+			<div style='float:left; margin-top:100px; margin-left:100px; width:670px;'><div>
+				<form id='form'>
 					<table class="table">
 						<tr>
 							<th colspan='4'>OUTWARD - TRAINS</th>
@@ -151,7 +151,7 @@
 				</form>
 			</div>
 		</div>
-	</center>
+		</div>
 </body>
 
 </html>
