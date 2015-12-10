@@ -1,8 +1,12 @@
-notplaneapp.controller('noPlaneController',['$http', '$filter', 'outBound', 'inBound','StringDate','factoryTLAName', '$scope', function($http, $filter, outBound, inBound, StringDate, factoryTLAName, $scope) {
+notplaneapp.controller('noPlaneController',['$http', '$filter', 'outBound', 'inBound','StringDate','factoryTLAName', '$location', '$scope', function($http, $filter, outBound, inBound, StringDate, factoryTLAName, $location, $scope) {
 
   var self = this;
   self.planeChecked = true;
   self.trainChecked = true;
+
+  self.showFlight = function(item) {
+    $location.path('/flight/' + item);
+  };
 
   var baseURL = 'app/airports.json';
   $http.get(baseURL).then(function(response) {
