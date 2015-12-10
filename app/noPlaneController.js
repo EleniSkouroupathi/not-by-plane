@@ -1,4 +1,4 @@
-notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$scope', function($http, outBound, inBound, $scope) {
+notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','StringDate', '$scope', function($http, outBound, inBound, StringDate, $scope) {
 
   var self = this;
 
@@ -6,14 +6,10 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
     var startLoc = self.selectedAirportFrom['iata']
     var endLoc = self.selectedAirportTo['iata']
 
-    console.log(startLoc)
-
-    outBound.query(startLoc, endLoc)
-
+    startDate = StringDate.convertEndDate(self.startingDate);
+    outBound.query(startLoc, endLoc, startDate)
       .then(function(response) {
         self.searchResult = response.data;
-        //console.log(response.data);
-        //console.log(self.searchResult);
       });
   };
 
@@ -21,22 +17,17 @@ notplaneapp.controller('noPlaneController',['$http', 'outBound', 'inBound','$sco
     var startLoc = self.selectedAirportFrom['iata']
     var endLoc = self.selectedAirportTo['iata']
 
-    inBound.query(startLoc, endLoc)
+    endDate = StringDate.convertEndDate(self.endingDate);
+    inBound.query(startLoc, endLoc, endDate)
       .then(function(response) {
         self.searchResult2 = response.data;
-        // console.log(response.data);
-        // console.log(self.searchResult2);
       });
   };
-
-  // $scope.selectedAirportFrom = null;
-  // $scope.selectedAirportTo = null;
 
   var airports = new Bloodhound({
     datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name);},
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     local: allAirports
-
   });
 
   airports.initialize();

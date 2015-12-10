@@ -22,6 +22,7 @@
 	<script src='app/factoryOutbound.js'></script>
 	<script src='app/factoryInbound.js'></script>
 	<script src="app/airports.json"></script>
+  <script src='app/factoryStringDate.js'></script>
 
 	<title> Not By Plane</title>
 </head>
@@ -31,30 +32,19 @@
 		<div id="wrapper">
 			<header class="page-header">
 				<h1> Plan Your Journey </h1>
-				<br><i class="fa fa-train fa-5x logo"></i>
-				<br>
+				<br><i class="fa fa-train fa-5x logo"></i> <br>
 			</header>
 			<div class="content">
 				<form>
 					<div class="form-container1">
-						<input type="text" placeholder="From" class="typeahead" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportFrom">
-						<br>
-						<br>
+						<input type="text" placeholder="From" class="typeahead" sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportFrom"> <br> <br>
 						<input type="text" placeholder="To" class='typeahead' sf-typeahead options="exampleOptions" datasets="airportsDataset" ng-model="noPlaneCtrl.selectedAirportTo">
-						<br>
-						<br>
-						<br>
-						<p>From: {{noPlaneCtrl.selectedAirportFrom['iata']}}</p>
-						<div>Departure date:</div>
-						<input class="date" type="date">
-						<br>
-						<br>
-						<div>Return date:</div>
-						<input class="date" type="date">
-						<br>
-						<br>
-						<br>
-					</div>
+						<br> <br>
+					<div>Departure date:</div>
+			<input ng-model='noPlaneCtrl.startingDate' placeholder='yyyy-MM-dd' type="date"> <br><br>
+			<div>Return date:</div>
+			<input ng-model='noPlaneCtrl.endingDate' placeholder='yyyy-MM-dd' type="date"> <br><br><br>
+				<br> </div>
 
 					<div class="form-container2">
 						Travel method (please select atleast one):
@@ -65,22 +55,18 @@
 						<div class="checkbox">
 							<label>
 								<input type="checkbox" value="">Trains</label>
-						</div>
-						<br>
+						</div> <br>
 						<div>
 							<button type="button" class="btn btn-default" ng-click='noPlaneCtrl.searchs()'>PLAN MY JOURNEY</button>
-						</div>
-						<br>
+						</div> <br>
 				</form>
-				</div>
-			</div>
+				</div> </div>
 			<div>
 				<form>
 					<table class="table">
 						<tr>
 							<th colspan='4'>OUTWARD - TRAINS</th>
-						</tr>
-						<tr>
+						</tr> <tr>
 							<th>Date</th>
 							<th>From</th>
 							<th>To</th>
